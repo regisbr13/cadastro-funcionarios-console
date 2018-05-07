@@ -34,7 +34,12 @@ namespace Cad_Funcionarios
             Console.Write("Digite a porcentagem de aumento: ");
             double percentual = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Funcionario.AumentarSalario(Funcionario.TeraAumento(cpf, funcionarios), percentual);
-            Console.WriteLine(Funcionario.TeraAumento(cpf, funcionarios));
+
+            Console.WriteLine("Listagem atualizada de funcionários:");
+            for (int i = 0; i < funcionarios.Count; i++)
+            {
+                Console.WriteLine(funcionarios[i]);
+            }
 
             Console.ReadKey();
         }
