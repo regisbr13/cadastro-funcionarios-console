@@ -23,6 +23,11 @@ namespace Cad_Funcionarios
             return funcionarios[pos];
         }
 
+        public static void AumentarSalario(Funcionario funcionario, double percentual)
+        {
+            funcionario.Salario += funcionario.Salario * percentual / 100;
+        }
+
         public override string ToString()
         {
             return Cpf + ", " + Nome + ", " + Salario.ToString("F2", CultureInfo.InvariantCulture);

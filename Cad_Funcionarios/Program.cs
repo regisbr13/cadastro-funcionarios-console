@@ -31,6 +31,9 @@ namespace Cad_Funcionarios
             Console.WriteLine();
             Console.Write("Digite o CPF do funcionário que terá aumento: ");
             cpf = Console.ReadLine();
+            Console.Write("Digite a porcentagem de aumento: ");
+            double percentual = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Funcionario.AumentarSalario(Funcionario.TeraAumento(cpf, funcionarios), percentual);
             Console.WriteLine(Funcionario.TeraAumento(cpf, funcionarios));
 
             Console.ReadKey();
