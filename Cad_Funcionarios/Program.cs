@@ -7,9 +7,11 @@ namespace Cad_Funcionarios
 {
     class Program
     {
+        //Programa simples de console para cadastrar e mostrar um número de funcionários determinado pelo usuário:
         static void Main(string[] args)
         {
             string cpf, nome;
+            int flag = 1;
             double salario;
             List<Funcionario> funcionarios = new List<Funcionario>();
 
@@ -28,13 +30,27 @@ namespace Cad_Funcionarios
                 funcionarios.Add(funcionario);
             }
 
-            Console.WriteLine();
-            Console.Write("Digite o CPF do funcionário que terá aumento: ");
-            cpf = Console.ReadLine();
-            Console.Write("Digite a porcentagem de aumento: ");
-            double percentual = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            Funcionario.AumentarSalario(Funcionario.TeraAumento(cpf, funcionarios), percentual);
+            while (flag == 1)
+            {
+                Console.WriteLine();
+                Console.Write("Digite o CPF do funcionário que terá aumento: ");
+                cpf = Console.ReadLine();
+                int pos = funcionarios.FindIndex(x => x.Cpf == cpf);
+                if (pos == -1)
+                {
+                    Console.WriteLine("CPF inválido!");
+                }
+                else
+                {
+                    Console.Write("Digite a porcentagem de aumento: ");
+                    double percentual = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    funcionarios[pos].AumentarSalario(percentual);
+                    flag = 0;
+                }
+            }
+            
 
+            Console.WriteLine();
             Console.WriteLine("Listagem atualizada de funcionários:");
             for (int i = 0; i < funcionarios.Count; i++)
             {

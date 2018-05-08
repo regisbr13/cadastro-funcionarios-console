@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 
 namespace Cad_Funcionarios
@@ -17,15 +16,9 @@ namespace Cad_Funcionarios
             this.Salario = salario;
         }
 
-        public static Funcionario TeraAumento(string cpf, List<Funcionario> funcionarios)
+        public void AumentarSalario(double percentual)
         {
-            int pos = funcionarios.FindIndex(x => x.Cpf == cpf);
-            return funcionarios[pos];
-        }
-
-        public static void AumentarSalario(Funcionario funcionario, double percentual)
-        {
-            funcionario.Salario += funcionario.Salario * percentual / 100;
+            Salario +=  Salario * percentual / 100;
         }
 
         public override string ToString()
